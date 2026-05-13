@@ -1,0 +1,17 @@
+# Compiled binaries produced by zig cc
+*.exe
+*.o
+command-line-arguments
+command-line-flags
+command-line-subcommands
+http-client
+http-server
+context
+tcp-server
+
+# Temporary files created by lesson examples (lessons 58-60)
+tmp/
+
+# Zig compiler cache
+.zig-cache/
+zig-out/
