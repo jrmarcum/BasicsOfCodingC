@@ -1,20 +1,57 @@
 # Basics of Coding C
+
+## Project Overview
+
+This project is one language implementation within a **multi-language comparative study** of
+programming syntax, lines of code required, and compile/run performance. The same set of 78
+example programs is implemented in C, Go, Rust, V, and other languages so that the languages
+can be compared side-by-side.
+
+Lessons are translated from **[Basics of Coding Go](https://github.com/jrmarcum/BasicsOfCodingGo)**
+by Jon Marcum, which is itself adapted from **[Go by Example](https://github.com/mmcgrana/gobyexample)**
+by Mark McGranaghan.
+
+## Project Structure
+
+```text
+BasicsOfCodingC/
+├── CLAUDE.md          — canonical project context for AI-assisted development
+├── LICENSE            — CC0 (Jon Marcum's original contributions)
+├── NOTICE             — attribution for CC BY 3.0 derived content
+├── README.md          — this file
+├── upstream/          — reference copy of BasicsOfCodingGo lessons
+│   └── ##_topic-name/ — Go source and .md for each lesson
+└── ##_topic-name/     — 78 lessons, 01_hello-world through 78_sha256-hashes
+    ├── topic-name.c   — runnable C source
+    └── topic-name.md  — lesson explanation with run command and expected output
+```
+
+> **AI-assisted development:** `CLAUDE.md` in the project root contains full context for
+> Claude sessions — toolchain, lesson notes, C translation decisions, and conventions.
+> All project context is kept in that file so sessions are fully portable.
+
 ## Preface
+
 What this text is and what it is not: This text is intended to introduce the reader to the basics of the C programming language in the sense that they will be able to write minimal types of programs and run the code. It is not intended to go into advanced topics like concurrency, advanced data structures, object-oriented programming, testing and debugging techniques, and other software engineering principals.
 
 The programs are intended to be run in the terminal as that is common to most operating systems. Linux and Mac come preinstalled with a terminal. Windows may or may not have it pre-installed. "Windows Terminal" can be installed from the Microsoft Store.
 
 ## Installation and Setup of Zig (to compile and run C)
+
 To setup Zig for use, navigate to the [ziglang](https://github.com/ziglang/zig/wiki/Install-Zig-from-a-Package-Manager) website and locate an appropriate package manager for your operating system. Install and follow the directions on how to perform further settings for use. A package manager makes the install process much easier (brew for Mac, chocolatey for Windows, and varies based on linux distribution). If Zig has been installed properly you will be able to type the following command in the terminal command line and receive the response shown:
-```
+
+```text
 $ zig version
 0.13.0
 (Note: the version shown here varies with your installed version)
 ```
+
 Zig ships with a built-in C compiler (`zig cc`) that supports C99 and later. All examples in this project run with a single command:
-```
+
+```sh
 $ zig run -lc filename.c
 ```
+
 The `-lc` flag links the C standard library. A few lessons require additional flags:
 
 - **Math** (lessons 04, 20): `zig run -lc -lm filename.c`

@@ -75,6 +75,8 @@ BasicsOfCodingC/
 Lessons use two-digit prefixes (e.g., `01_hello-world`). All 78 lessons are
 implemented (`01_hello-world` through `78_sha256-hashes`).
 
+Repository: <https://github.com/jrmarcum/BasicsOfCodingC>
+
 ## C Translation Notes
 
 Go features that have no direct C equivalent, and the idiomatic C approach:
@@ -157,3 +159,10 @@ zig-out/
 - Lesson 76 (signals) requires sending SIGINT (Ctrl+C) at runtime; output includes
   a newline before "interrupt signal received".
 - Lesson 32 (tickers) and 37 (rate-limiting) print timestamps that vary each run.
+- Lesson 53 (random-numbers) uses `rand()` with `srand(42)`; numeric output differs from Go's because
+  C and Go use different PRNG algorithms — the results will not match Go's expected output exactly.
+- Lesson 62 (directories) creates and removes `subdir/` at runtime; run from within the lesson
+  folder (`cd 62_directories`) to avoid path issues.
+- VS Code IntelliSense (MSVC-based) frequently reports false errors on valid C99 code — artifacts of
+  IntelliSense applying MSVC rules to code targeting `zig cc`. Trust `zig cc` compilation as ground
+  truth; do **not** rewrite code to satisfy IntelliSense.
